@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     private WebView webView;
-    private static final String APP_URL = "https://suvam-computer-sales-service.scom89-sale.chatgpt.site";
+    private static final String APP_URL = "https://scom89sale-code.github.io/suvam-computer-android-apk/";
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override protected void onCreate(Bundle state) {
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
             @Override public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
                 Uri uri = request.getUrl();
                 String host = uri.getHost();
-                if (host != null && (host.endsWith("chatgpt.site") || host.endsWith("openai.com"))) return false;
+                if (host != null && host.endsWith("github.io")) return false;
                 startActivity(new Intent(Intent.ACTION_VIEW, uri));
                 return true;
             }
