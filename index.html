@@ -3,78 +3,435 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#061631">
 <title>SUVAM COMPUTER</title>
+
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(135deg,#06152d,#0876c9);color:white}
-header{text-align:center;padding:28px 15px;background:#ffffff18;backdrop-filter:blur(12px)}
-.logo{font-size:55px;font-weight:bold;color:#43c6ff}
-h1{margin:5px;font-size:29px}
-.tag{color:#d7f3ff}
-nav{position:sticky;top:0;display:flex;justify-content:center;gap:8px;padding:10px;background:#06152ddd}
-nav a{color:white;text-decoration:none;background:#168de2;padding:9px 13px;border-radius:20px}
-section{margin:15px;padding:20px;border-radius:20px;background:#ffffff18;box-shadow:0 5px 20px #0005}
-h2{color:#72dcff}
-.offer{text-align:center;background:linear-gradient(135deg,#ff7b00,#e40046)}
-.price{font-size:34px;font-weight:bold;color:#fff600}
-.card{margin:10px 0;padding:14px;border-radius:14px;background:#ffffff19}
-button,.btn{display:block;width:100%;padding:14px;margin-top:12px;border:0;border-radius:25px;background:#25d366;color:white;text-align:center;text-decoration:none;font-size:17px;font-weight:bold}
-footer{text-align:center;padding:25px;background:#031024}
-.watermark{position:fixed;right:-5px;bottom:50px;font-size:150px;font-weight:bold;color:#ffffff09;pointer-events:none}
+html{scroll-behavior:smooth}
+body{
+ margin:0;color:white;overflow-x:hidden;
+ font-family:Arial,"Noto Sans Bengali",sans-serif;
+ background:linear-gradient(145deg,#030b1d,#07356b);
+}
+
+/* Running strip */
+.strip{
+ overflow:hidden;padding:10px 0;
+ background:linear-gradient(90deg,#ff4900,#ffae00,#e90070);
+ font-weight:bold;white-space:nowrap
+}
+.running{
+ display:inline-block;padding-left:100%;
+ animation:run 20s linear infinite
+}
+@keyframes run{
+ to{transform:translateX(-100%)}
+}
+
+/* Header */
+header{
+ padding:20px;text-align:center;
+ background:#061631dd
+}
+.brand{
+ display:flex;justify-content:center;
+ align-items:center;gap:12px
+}
+.logo{
+ width:60px;height:60px;border-radius:18px;
+ display:grid;place-items:center;
+ font-size:40px;font-weight:bold;
+ background:linear-gradient(145deg,#65eaff,#0877f2);
+ box-shadow:0 0 30px #27caff;
+ animation:pulse 2s infinite
+}
+@keyframes pulse{
+ 50%{transform:scale(1.08)}
+}
+h1{margin:0;font-size:27px}
+.tag{color:#bdefff;margin-top:5px}
+
+/* Menu */
+nav{
+ position:sticky;top:0;z-index:20;
+ display:flex;justify-content:center;
+ gap:7px;padding:10px;
+ background:#030d22eF
+}
+nav a{
+ color:white;text-decoration:none;
+ padding:9px 12px;border-radius:22px;
+ background:linear-gradient(135deg,#087bea,#14c8df);
+ font-size:13px;font-weight:bold
+}
+
+/* Slideshow */
+.slider{
+ position:relative;height:310px;
+ margin:14px;border-radius:24px;
+ overflow:hidden;box-shadow:0 12px 35px #0009
+}
+.slide{
+ position:absolute;inset:0;
+ opacity:0;transform:scale(1.08);
+ transition:opacity .8s,transform 1s;
+ background-size:cover;background-position:center
+}
+.slide.active{opacity:1;transform:scale(1)}
+.slide:after{
+ content:"";position:absolute;inset:0;
+ background:linear-gradient(90deg,#02091aee,#02091a44)
+}
+.s1{
+ background-image:url("https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=1000&q=80")
+}
+.s2{
+ background-image:url("https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?auto=format&fit=crop&w=1000&q=80")
+}
+.s3{
+ background-image:url("https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=1000&q=80")
+}
+.slide-text{
+ position:absolute;z-index:2;
+ left:22px;right:20px;bottom:35px
+}
+.badge{
+ background:#ffb400;color:#281500;
+ padding:6px 11px;border-radius:20px;
+ font-size:12px;font-weight:bold
+}
+.slide h2{font-size:29px;margin:12px 0 5px}
+.price{
+ font-size:34px;color:#fff000;
+ font-weight:bold
+}
+.dots{
+ position:absolute;z-index:4;
+ right:18px;bottom:15px
+}
+.dot{
+ display:inline-block;width:9px;height:9px;
+ margin:3px;border-radius:10px;background:#ffffff66
+}
+.dot.active{width:25px;background:#55e9ff}
+
+/* Common */
+section{
+ margin:14px;padding:20px;
+ border:1px solid #ffffff2c;
+ border-radius:23px;
+ background:#ffffff16;
+ box-shadow:0 8px 25px #0005
+}
+.title{font-size:22px;color:#77eaff}
+.grid{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:10px
+}
+.card{
+ min-height:105px;padding:14px;
+ border-radius:17px;
+ background:linear-gradient(145deg,#ffffff26,#ffffff0c);
+ border:1px solid #ffffff22
+}
+.icon{font-size:28px}
+.card b{display:block;margin:8px 0 3px}
+.card small{color:#c6ddf1}
+
+/* Quick menu */
+.quick{
+ display:grid;grid-template-columns:repeat(4,1fr);
+ gap:8px;margin:14px
+}
+.quick a{
+ color:white;text-decoration:none;
+ text-align:center;padding:13px 3px;
+ border-radius:17px;
+ background:#ffffff18;
+ border:1px solid #ffffff2b;
+ font-size:12px
+}
+.quick span{display:block;font-size:25px}
+
+/* Stats */
+.stats{
+ display:grid;grid-template-columns:repeat(3,1fr);
+ gap:9px;margin:14px
+}
+.stat{
+ text-align:center;padding:15px 4px;
+ border-radius:17px;background:#ffffff18
+}
+.stat b{
+ display:block;font-size:22px;color:#65e8ff
+}
+.stat small{font-size:11px}
+
+/* Offer */
+.offer{
+ background:linear-gradient(135deg,#ff7100,#dd006c)
+}
+.offer h2{margin:0}
+.offer strong{
+ display:block;font-size:35px;
+ color:#fff000;margin:8px 0
+}
+
+/* Reviews */
+.review{
+ display:none;text-align:center;
+ min-height:125px
+}
+.review.active{
+ display:block;
+ animation:fade .8s
+}
+@keyframes fade{
+ from{opacity:0;transform:translateY(10px)}
+}
+.stars{color:#ffd500;font-size:22px}
+
+/* Buttons */
+.buttons{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:10px
+}
+.btn{
+ display:block;padding:14px;
+ border-radius:25px;
+ text-align:center;text-decoration:none;
+ color:white;font-weight:bold
+}
+.whatsapp{background:#20bd5a}
+.call{background:#087eea}
+.map{
+ grid-column:1/-1;
+ background:linear-gradient(90deg,#ff4800,#e90070)
+}
+
+footer{
+ text-align:center;padding:30px 15px 85px;
+ background:#020817;color:#a4c9e7
+}
+footer b{color:white;font-size:19px}
+
+.watermark{
+ position:fixed;z-index:-1;
+ right:-25px;bottom:40px;
+ font-size:240px;font-weight:bold;
+ color:#ffffff0a
+}
+.float{
+ position:fixed;right:17px;bottom:20px;
+ width:58px;height:58px;border-radius:50%;
+ display:grid;place-items:center;
+ color:white;text-decoration:none;
+ background:#20bd5a;font-size:28px;
+ box-shadow:0 8px 25px #0009;
+ animation:float 2s infinite
+}
+@keyframes float{
+ 50%{transform:translateY(-6px)}
+}
 </style>
 </head>
+
 <body>
 
 <div class="watermark">S</div>
 
+<div class="strip">
+ <div class="running">
+ 🔥 নতুন Desktop ₹৯,৯০০ থেকে • Original Windows 10/11 •
+ Free Assembly & Installation • Finance Facility •
+ Sale, Service ও Online Support — SUVAM COMPUTER
+ </div>
+</div>
+
 <header>
+ <div class="brand">
   <div class="logo">S</div>
-  <h1>SUVAM COMPUTER</h1>
-  <div class="tag">আপনার প্রযুক্তির সঠিক সঙ্গী</div>
+  <div>
+   <h1>SUVAM COMPUTER</h1>
+   <div class="tag">আপনার প্রযুক্তির সঠিক সঙ্গী</div>
+  </div>
+ </div>
 </header>
 
 <nav>
-  <a href="#home">Home</a>
-  <a href="#sale">Sale</a>
-  <a href="#service">Service</a>
-  <a href="#support">Support</a>
+ <a href="#home">Home</a>
+ <a href="#sale">Sale</a>
+ <a href="#service">Service</a>
+ <a href="#support">Support</a>
 </nav>
 
-<section id="home" class="offer">
-  <h2>🔥 COMPUTER DHAMAKA SALE 🔥</h2>
-  <p>Full Desktop Computer Starting From</p>
-  <div class="price">₹9,900/- Only</div>
-  <p>Student • Office • Home • Gaming • Editing</p>
+<main>
+
+<div id="home" class="slider">
+
+ <div class="slide s1 active">
+  <div class="slide-text">
+   <span class="badge">COMPUTER DHAMAKA SALE</span>
+   <h2>Full Desktop Setup</h2>
+   <div class="price">₹9,900/- থেকে</div>
+   <p>Student • Office • Home Ready</p>
+  </div>
+ </div>
+
+ <div class="slide s2">
+  <div class="slide-text">
+   <span class="badge">BEST PRICE</span>
+   <h2>Monitor ও Accessories</h2>
+   <div class="price">বিশেষ Offer</div>
+   <p>Tested Product • Trusted Service</p>
+  </div>
+ </div>
+
+ <div class="slide s3">
+  <div class="slide-text">
+   <span class="badge">SECURE YOUR WORLD</span>
+   <h2>CCTV Camera Setup</h2>
+   <div class="price">CP Plus • Hikvision</div>
+   <p>Home • Shop • Office Installation</p>
+  </div>
+ </div>
+
+ <div class="dots">
+  <i class="dot active"></i>
+  <i class="dot"></i>
+  <i class="dot"></i>
+ </div>
+</div>
+
+<div class="quick">
+ <a href="#sale"><span>🖥️</span>Products</a>
+ <a href="#service"><span>🔧</span>Repair</a>
+ <a href="#support"><span>💬</span>Support</a>
+ <a href="#support"><span>📍</span>Location</a>
+</div>
+
+<div class="stats">
+ <div class="stat"><b>5000+</b><small>Customers</small></div>
+ <div class="stat"><b>100+</b><small>Reviews</small></div>
+ <div class="stat"><b>7 Days</b><small>Support</small></div>
+</div>
+
+<section class="offer">
+ <h2>⚡ আজকের বিশেষ অফার</h2>
+ <p>নতুন Full Desktop Computer</p>
+ <strong>₹9,900/- থেকে</strong>
+ <p>সীমিত স্টক • শর্ত প্রযোজ্য</p>
 </section>
 
 <section id="sale">
-  <h2>🖥️ Products & Sale</h2>
-  <div class="card">নতুন Desktop ও Laptop</div>
-  <div class="card">Monitor, Printer ও Accessories</div>
-  <div class="card">Custom Computer Build</div>
-  <div class="card">CCTV Camera ও সম্পূর্ণ Setup</div>
-  <div class="card">সহজ Finance Facility</div>
+ <h2 class="title">🛍️ Products & Sale</h2>
+
+ <div class="grid">
+  <div class="card"><span class="icon">🖥️</span><b>Desktop PC</b><small>Custom ও Ready Build</small></div>
+  <div class="card"><span class="icon">💻</span><b>Laptop</b><small>New Model ও Offer</small></div>
+  <div class="card"><span class="icon">🖨️</span><b>Printer</b><small>Sales ও Service</small></div>
+  <div class="card"><span class="icon">📹</span><b>CCTV</b><small>Complete Installation</small></div>
+  <div class="card"><span class="icon">🖱️</span><b>Accessories</b><small>Keyboard, Mouse ও আরও</small></div>
+  <div class="card"><span class="icon">🪟</span><b>Original Windows</b><small>Windows 10/11 OEM</small></div>
+  <div class="card"><span class="icon">🎓</span><b>Student PC</b><small>Study ও Online Class</small></div>
+  <div class="card"><span class="icon">🎮</span><b>Gaming PC</b><small>Powerful Custom Build</small></div>
+ </div>
 </section>
 
 <section id="service">
-  <h2>🔧 Repair & Service</h2>
-  <div class="card">Desktop ও Laptop Repair</div>
-  <div class="card">Printer ও CCTV Service</div>
-  <div class="card">Windows 10/11 ও Software Installation</div>
-  <div class="card">AnyDesk Online Support</div>
+ <h2 class="title">🔧 Repair & Service</h2>
+
+ <div class="grid">
+  <div class="card"><span class="icon">🛠️</span><b>Desktop Repair</b><small>Hardware ও Software</small></div>
+  <div class="card"><span class="icon">🔩</span><b>Laptop Repair</b><small>Diagnosis ও Service</small></div>
+  <div class="card"><span class="icon">🖨️</span><b>Printer Service</b><small>Repair ও Maintenance</small></div>
+  <div class="card"><span class="icon">🌐</span><b>Online Support</b><small>AnyDesk Assistance</small></div>
+ </div>
+</section>
+
+<section>
+ <h2 class="title">⭐ Customer Reviews</h2>
+
+ <div class="review active">
+  <div class="stars">★★★★★</div>
+  <p>“Reasonable price এবং খুব ভালো service। সামনে product test করে দেওয়া হয়েছে।”</p>
+  <b>— Happy Customer</b>
+ </div>
+
+ <div class="review">
+  <div class="stars">★★★★★</div>
+  <p>“Computer setup ও software installation খুব সুন্দরভাবে করে দিয়েছেন।”</p>
+  <b>— Local Customer</b>
+ </div>
+
+ <div class="review">
+  <div class="stars">★★★★★</div>
+  <p>“Sales-এর পরেও দ্রুত support পাওয়া যায়। খুবই বিশ্বস্ত দোকান।”</p>
+  <b>— Verified Buyer</b>
+ </div>
 </section>
 
 <section id="support">
-  <h2>☎️ Customer Support</h2>
-  <p>ঠিকানা: কোয়ালপাড়া, কোতুলপুর, বাঁকুড়া</p>
-  <p>অর্ডার, মূল্য ও সার্ভিসের জন্য আমাদের সঙ্গে যোগাযোগ করুন।</p>
-  <a class="btn" href="https://wa.me/" target="_blank">WhatsApp Order</a>
+ <h2 class="title">☎️ Customer Support</h2>
+
+ <p>
+  <b>SUVAM COMPUTER</b><br><br>
+  কোয়ালপাড়া, কোতুলপুর, বাঁকুড়া<br>
+  Desktop • Laptop • Printer • CCTV • Software
+ </p>
+
+ <div class="buttons">
+  <a class="btn whatsapp" href="https://wa.me/" target="_blank">💬 WhatsApp</a>
+  <a class="btn call" href="#support">📞 Call Now</a>
+  <a class="btn map"
+     href="https://www.google.com/maps/search/?api=1&query=Koalpara+Kotulpur+Bankura"
+     target="_blank">📍 দোকানের Location</a>
+ </div>
 </section>
 
+</main>
+
 <footer>
-  <b>SUVAM COMPUTER</b><br><br>
-  Design by Suvam Computer
+ <b>SUVAM COMPUTER</b><br><br>
+ আপনার প্রযুক্তির সঠিক সঙ্গী<br><br>
+ Design by Suvam Computer
 </footer>
+
+<a class="float" href="https://wa.me/" target="_blank">✆</a>
+
+<script>
+const slides=document.querySelectorAll(".slide");
+const dots=document.querySelectorAll(".dot");
+let current=0;
+
+function showSlide(number){
+ slides[current].classList.remove("active");
+ dots[current].classList.remove("active");
+ current=number%slides.length;
+ slides[current].classList.add("active");
+ dots[current].classList.add("active");
+}
+
+setInterval(function(){
+ showSlide(current+1);
+},4000);
+
+dots.forEach(function(dot,index){
+ dot.onclick=function(){showSlide(index)};
+});
+
+const reviews=document.querySelectorAll(".review");
+let review=0;
+
+setInterval(function(){
+ reviews[review].classList.remove("active");
+ review=(review+1)%reviews.length;
+ reviews[review].classList.add("active");
+},3500);
+</script>
 
 </body>
 </html>
