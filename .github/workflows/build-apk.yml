@@ -19,6 +19,10 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: "8.7"
+      - name: Prepare app icon
+        run: |
+          mkdir -p app/src/main/res/drawable
+          cp suvam_logo.png app/src/main/res/drawable/suvam_logo.png
       - name: Build debug APK
         run: gradle :app:assembleDebug --no-daemon
       - uses: actions/upload-artifact@v4
