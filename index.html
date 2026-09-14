@@ -10,427 +10,501 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
- margin:0;color:white;overflow-x:hidden;
+ margin:0;color:#fff;overflow-x:hidden;
  font-family:Arial,"Noto Sans Bengali",sans-serif;
- background:linear-gradient(145deg,#030b1d,#07356b);
+ background:linear-gradient(145deg,#02091b,#073b74);
 }
-
-/* Running strip */
+body.paused *{animation-play-state:paused!important}
 .strip{
- overflow:hidden;padding:10px 0;
- background:linear-gradient(90deg,#ff4900,#ffae00,#e90070);
- font-weight:bold;white-space:nowrap
+ overflow:hidden;padding:10px 0;white-space:nowrap;
+ background:linear-gradient(90deg,#ff4800,#ffb000,#e90070);
+ font-weight:bold
 }
 .running{
  display:inline-block;padding-left:100%;
- animation:run 20s linear infinite
+ animation:running 22s linear infinite
 }
-@keyframes run{
- to{transform:translateX(-100%)}
-}
+@keyframes running{to{transform:translateX(-100%)}}
 
-/* Header */
 header{
- padding:20px;text-align:center;
- background:#061631dd
+ padding:15px;background:#04142de8;
+ display:flex;align-items:center;justify-content:space-between
 }
-.brand{
- display:flex;justify-content:center;
- align-items:center;gap:12px
-}
+.brand{display:flex;align-items:center;gap:10px}
 .logo{
- width:60px;height:60px;border-radius:18px;
- display:grid;place-items:center;
- font-size:40px;font-weight:bold;
- background:linear-gradient(145deg,#65eaff,#0877f2);
- box-shadow:0 0 30px #27caff;
- animation:pulse 2s infinite
+ width:60px;height:60px;object-fit:contain;
+ border-radius:16px;background:white;
+ box-shadow:0 0 25px #42dfff;
+ animation:pulse 2.2s infinite
 }
-@keyframes pulse{
- 50%{transform:scale(1.08)}
+@keyframes pulse{50%{transform:scale(1.06)}}
+h1{font-size:21px;margin:0}
+.tag{font-size:12px;color:#bcefff;margin-top:4px}
+.toggle{
+ border:1px solid #ffffff55;border-radius:20px;
+ padding:8px 10px;color:white;background:#ffffff16;
+ font-size:12px
 }
-h1{margin:0;font-size:27px}
-.tag{color:#bdefff;margin-top:5px}
 
-/* Menu */
 nav{
- position:sticky;top:0;z-index:20;
- display:flex;justify-content:center;
- gap:7px;padding:10px;
- background:#030d22eF
+ position:sticky;top:0;z-index:50;
+ display:grid;grid-template-columns:repeat(4,1fr);
+ gap:5px;padding:8px;background:#020b20ee
 }
-nav a{
- color:white;text-decoration:none;
- padding:9px 12px;border-radius:22px;
- background:linear-gradient(135deg,#087bea,#14c8df);
- font-size:13px;font-weight:bold
+nav button{
+ border:0;padding:10px 3px;border-radius:18px;
+ color:white;background:#ffffff18;font-weight:bold
 }
+nav button.active{background:linear-gradient(135deg,#0787f3,#13c8dc)}
 
-/* Slideshow */
+.page{display:none;animation:page .4s}
+.page.active{display:block}
+@keyframes page{from{opacity:0;transform:translateY(8px)}}
+
 .slider{
- position:relative;height:310px;
- margin:14px;border-radius:24px;
- overflow:hidden;box-shadow:0 12px 35px #0009
+ position:relative;height:310px;margin:14px;
+ border-radius:24px;overflow:hidden;
+ box-shadow:0 15px 35px #0009
 }
 .slide{
- position:absolute;inset:0;
- opacity:0;transform:scale(1.08);
- transition:opacity .8s,transform 1s;
+ position:absolute;inset:0;opacity:0;
+ transform:scale(1.08);
+ transition:opacity .8s,transform 1.1s;
  background-size:cover;background-position:center
 }
 .slide.active{opacity:1;transform:scale(1)}
 .slide:after{
  content:"";position:absolute;inset:0;
- background:linear-gradient(90deg,#02091aee,#02091a44)
+ background:linear-gradient(90deg,#01091cee,#01091c33)
 }
-.s1{
- background-image:url("https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=1000&q=80")
+.desktop{
+ background-image:url("https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=1000&q=85")
 }
-.s2{
- background-image:url("https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?auto=format&fit=crop&w=1000&q=80")
+.laptop{
+ background-image:url("https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=1000&q=85")
 }
-.s3{
- background-image:url("https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=1000&q=80")
+.printer{
+ background-image:url("https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=1000&q=85")
 }
-.slide-text{
- position:absolute;z-index:2;
- left:22px;right:20px;bottom:35px
+.slideText{
+ position:absolute;z-index:3;left:22px;
+ right:18px;bottom:35px
 }
 .badge{
- background:#ffb400;color:#281500;
- padding:6px 11px;border-radius:20px;
- font-size:12px;font-weight:bold
+ display:inline-block;background:#ffb500;color:#281400;
+ padding:6px 10px;border-radius:18px;font-size:11px;font-weight:bold
 }
-.slide h2{font-size:29px;margin:12px 0 5px}
-.price{
- font-size:34px;color:#fff000;
- font-weight:bold
-}
-.dots{
- position:absolute;z-index:4;
- right:18px;bottom:15px
-}
+.slide h2{font-size:30px;margin:12px 0 6px}
+.price{font-size:33px;font-weight:bold;color:#fff000}
+.dots{position:absolute;z-index:4;right:18px;bottom:15px}
 .dot{
  display:inline-block;width:9px;height:9px;
- margin:3px;border-radius:10px;background:#ffffff66
+ margin:3px;border-radius:10px;background:#ffffff77
 }
-.dot.active{width:25px;background:#55e9ff}
+.dot.active{width:25px;background:#58eaff}
 
-/* Common */
+.watermark{
+ position:fixed;z-index:-1;right:-20px;bottom:50px;
+ width:230px;opacity:.035;pointer-events:none
+}
+
 section{
- margin:14px;padding:20px;
- border:1px solid #ffffff2c;
- border-radius:23px;
- background:#ffffff16;
+ margin:14px;padding:19px;border-radius:23px;
+ background:#ffffff16;border:1px solid #ffffff2c;
  box-shadow:0 8px 25px #0005
 }
-.title{font-size:22px;color:#77eaff}
-.grid{
- display:grid;
- grid-template-columns:repeat(2,1fr);
- gap:10px
-}
+.title{margin:0 0 15px;color:#72e7ff;font-size:22px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
 .card{
- min-height:105px;padding:14px;
- border-radius:17px;
- background:linear-gradient(145deg,#ffffff26,#ffffff0c);
- border:1px solid #ffffff22
+ padding:15px;min-height:115px;border-radius:17px;
+ background:linear-gradient(145deg,#ffffff26,#ffffff0b);
+ border:1px solid #ffffff24
 }
-.icon{font-size:28px}
-.card b{display:block;margin:8px 0 3px}
-.card small{color:#c6ddf1}
+.card .icon{font-size:30px}
+.card b{display:block;margin:8px 0 4px}
+.card small{color:#c5dbee}
+.action{
+ display:block;width:100%;border:0;border-radius:18px;
+ padding:9px;margin-top:10px;color:white;
+ background:#078af1;font-weight:bold
+}
 
-/* Quick menu */
-.quick{
- display:grid;grid-template-columns:repeat(4,1fr);
- gap:8px;margin:14px
-}
-.quick a{
- color:white;text-decoration:none;
- text-align:center;padding:13px 3px;
- border-radius:17px;
- background:#ffffff18;
- border:1px solid #ffffff2b;
- font-size:12px
-}
-.quick span{display:block;font-size:25px}
-
-/* Stats */
 .stats{
  display:grid;grid-template-columns:repeat(3,1fr);
- gap:9px;margin:14px
+ gap:8px;margin:14px
 }
 .stat{
- text-align:center;padding:15px 4px;
- border-radius:17px;background:#ffffff18
+ padding:14px 3px;text-align:center;border-radius:16px;
+ background:#ffffff18
 }
-.stat b{
- display:block;font-size:22px;color:#65e8ff
-}
-.stat small{font-size:11px}
+.stat b{display:block;font-size:21px;color:#63e9ff}
+.stat small{font-size:10px}
 
-/* Offer */
-.offer{
- background:linear-gradient(135deg,#ff7100,#dd006c)
-}
-.offer h2{margin:0}
-.offer strong{
- display:block;font-size:35px;
- color:#fff000;margin:8px 0
-}
+.offer{background:linear-gradient(135deg,#ff7200,#df006c)}
+.offer strong{display:block;font-size:35px;color:#fff000;margin:8px 0}
 
-/* Reviews */
-.review{
- display:none;text-align:center;
- min-height:125px
-}
-.review.active{
- display:block;
- animation:fade .8s
-}
-@keyframes fade{
- from{opacity:0;transform:translateY(10px)}
-}
-.stars{color:#ffd500;font-size:22px}
+.review{display:none;text-align:center;min-height:140px}
+.review.active{display:block;animation:review .6s}
+@keyframes review{from{opacity:0;transform:translateX(15px)}}
+.stars{color:#ffd400;font-size:22px}
 
-/* Buttons */
-.buttons{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:10px
+label{display:block;margin:11px 0 5px;color:#cbeaff}
+input,select,textarea{
+ width:100%;padding:13px;border:1px solid #ffffff33;
+ border-radius:13px;background:#ffffff14;color:white;font-size:15px
 }
-.btn{
- display:block;padding:14px;
- border-radius:25px;
- text-align:center;text-decoration:none;
- color:white;font-weight:bold
+select option{color:#111}
+textarea{min-height:90px;resize:vertical}
+.submit,.whatsapp,.call,.map{
+ display:block;width:100%;border:0;border-radius:25px;
+ padding:14px;text-align:center;text-decoration:none;
+ color:white;font-size:15px;font-weight:bold;margin-top:11px
 }
-.whatsapp{background:#20bd5a}
+.submit,.whatsapp{background:#20bd5a}
 .call{background:#087eea}
-.map{
- grid-column:1/-1;
- background:linear-gradient(90deg,#ff4800,#e90070)
+.map{background:linear-gradient(90deg,#ff4900,#e90070)}
+
+.modal{
+ display:none;position:fixed;z-index:100;
+ inset:0;padding:20px;background:#000c;
+ align-items:center;justify-content:center
+}
+.modal.show{display:flex}
+.modalBox{
+ width:100%;max-width:430px;padding:22px;border-radius:22px;
+ background:linear-gradient(145deg,#092b58,#07142c);
+ border:1px solid #ffffff3c
+}
+.close{
+ float:right;border:0;border-radius:50%;width:35px;height:35px;
+ background:#ffffff22;color:white;font-size:20px
 }
 
 footer{
- text-align:center;padding:30px 15px 85px;
- background:#020817;color:#a4c9e7
+ padding:30px 15px 80px;text-align:center;
+ background:#010714;color:#9fc4e4
 }
-footer b{color:white;font-size:19px}
-
-.watermark{
- position:fixed;z-index:-1;
- right:-25px;bottom:40px;
- font-size:240px;font-weight:bold;
- color:#ffffff0a
-}
+footer img{width:65px;height:65px;object-fit:contain;border-radius:16px}
 .float{
- position:fixed;right:17px;bottom:20px;
+ position:fixed;z-index:60;right:17px;bottom:18px;
  width:58px;height:58px;border-radius:50%;
- display:grid;place-items:center;
- color:white;text-decoration:none;
- background:#20bd5a;font-size:28px;
- box-shadow:0 8px 25px #0009;
- animation:float 2s infinite
-}
-@keyframes float{
- 50%{transform:translateY(-6px)}
+ display:grid;place-items:center;background:#20bd5a;
+ color:white;text-decoration:none;font-size:27px;
+ box-shadow:0 8px 25px #0009
 }
 </style>
 </head>
 
 <body>
 
-<div class="watermark">S</div>
+<img class="watermark" src="suvam_logo.png">
 
 <div class="strip">
  <div class="running">
- 🔥 নতুন Desktop ₹৯,৯০০ থেকে • Original Windows 10/11 •
- Free Assembly & Installation • Finance Facility •
- Sale, Service ও Online Support — SUVAM COMPUTER
+ 🔥 Desktop ₹৯,৯০০ থেকে • Laptop, Printer ও CCTV •
+ Original Windows 10/11 • Free Assembly & Installation •
+ WhatsApp: 8345905814 • SUVAM COMPUTER
  </div>
 </div>
 
 <header>
  <div class="brand">
-  <div class="logo">S</div>
+  <img class="logo" src="suvam_logo.png">
   <div>
    <h1>SUVAM COMPUTER</h1>
    <div class="tag">আপনার প্রযুক্তির সঠিক সঙ্গী</div>
   </div>
  </div>
+ <button class="toggle" onclick="toggleAnimation()">⏸ Animation</button>
 </header>
 
 <nav>
- <a href="#home">Home</a>
- <a href="#sale">Sale</a>
- <a href="#service">Service</a>
- <a href="#support">Support</a>
+ <button class="navBtn active" onclick="openPage('home',this)">Home</button>
+ <button class="navBtn" onclick="openPage('sale',this)">Sale</button>
+ <button class="navBtn" onclick="openPage('service',this)">Service</button>
+ <button class="navBtn" onclick="openPage('support',this)">Support</button>
 </nav>
 
-<main>
+<div id="home" class="page active">
 
-<div id="home" class="slider">
+ <div class="slider">
 
- <div class="slide s1 active">
-  <div class="slide-text">
-   <span class="badge">COMPUTER DHAMAKA SALE</span>
-   <h2>Full Desktop Setup</h2>
-   <div class="price">₹9,900/- থেকে</div>
-   <p>Student • Office • Home Ready</p>
+  <div class="slide desktop active">
+   <div class="slideText">
+    <span class="badge">DESKTOP COMPUTER</span>
+    <h2>Full Desktop Setup</h2>
+    <div class="price">₹9,900/- থেকে</div>
+    <p>Student • Office • Home Ready</p>
+   </div>
+  </div>
+
+  <div class="slide laptop">
+   <div class="slideText">
+    <span class="badge">LAPTOP OFFER</span>
+    <h2>New Laptop Collection</h2>
+    <div class="price">Best Price</div>
+    <p>Study • Office • Professional Work</p>
+   </div>
+  </div>
+
+  <div class="slide printer">
+   <div class="slideText">
+    <span class="badge">PRINTER SALE & SERVICE</span>
+    <h2>Printer Collection</h2>
+    <div class="price">Call for Price</div>
+    <p>Home • Office • Business</p>
+   </div>
+  </div>
+
+  <div class="dots">
+   <i class="dot active"></i>
+   <i class="dot"></i>
+   <i class="dot"></i>
   </div>
  </div>
 
- <div class="slide s2">
-  <div class="slide-text">
-   <span class="badge">BEST PRICE</span>
-   <h2>Monitor ও Accessories</h2>
-   <div class="price">বিশেষ Offer</div>
-   <p>Tested Product • Trusted Service</p>
+ <div class="stats">
+  <div class="stat"><b>5000+</b><small>Happy Customers</small></div>
+  <div class="stat"><b>100+</b><small>Customer Reviews</small></div>
+  <div class="stat"><b>7 Days</b><small>Support</small></div>
+ </div>
+
+ <section class="offer">
+  <h2>⚡ Computer Dhamaka Sale</h2>
+  <p>Full Desktop Computer</p>
+  <strong>₹9,900/- থেকে</strong>
+  <button class="action" onclick="openPageByName('sale')">Offer দেখুন</button>
+ </section>
+
+ <section>
+  <h2 class="title">⭐ Customer Reviews</h2>
+
+  <div class="review active">
+   <div class="stars">★★★★★</div>
+   <p>“Product সামনে test করে দেওয়া হয়েছে। Price এবং service খুব ভালো।”</p>
+   <b>— Amit Ghosh</b>
   </div>
- </div>
 
- <div class="slide s3">
-  <div class="slide-text">
-   <span class="badge">SECURE YOUR WORLD</span>
-   <h2>CCTV Camera Setup</h2>
-   <div class="price">CP Plus • Hikvision</div>
-   <p>Home • Shop • Office Installation</p>
+  <div class="review">
+   <div class="stars">★★★★★</div>
+   <p>“Computer setup এবং software installation খুব সুন্দর হয়েছে।”</p>
+   <b>— Snehasu Roy</b>
   </div>
- </div>
 
- <div class="dots">
-  <i class="dot active"></i>
-  <i class="dot"></i>
-  <i class="dot"></i>
- </div>
+  <div class="review">
+   <div class="stars">★★★★★</div>
+   <p>“সঠিক পরামর্শ এবং দ্রুত service পেয়েছি।”</p>
+   <b>— Arpita Dey</b>
+  </div>
+
+  <div class="review">
+   <div class="stars">★★★★★</div>
+   <p>“কম দামে ভালো product এবং বিক্রির পরেও support পাওয়া যায়।”</p>
+   <b>— Soumya Pal</b>
+  </div>
+
+  <div class="review">
+   <div class="stars">★★★★★</div>
+   <p>“বিশ্বস্ত দোকান। ব্যবহার এবং service খুব ভালো।”</p>
+   <b>— Koushik Bag</b>
+  </div>
+ </section>
 </div>
 
-<div class="quick">
- <a href="#sale"><span>🖥️</span>Products</a>
- <a href="#service"><span>🔧</span>Repair</a>
- <a href="#support"><span>💬</span>Support</a>
- <a href="#support"><span>📍</span>Location</a>
+<div id="sale" class="page">
+ <section>
+  <h2 class="title">🛍️ Products & Sale</h2>
+
+  <div class="grid">
+   <div class="card">
+    <span class="icon">🖥️</span><b>Desktop PC</b>
+    <small>Custom ও Full Setup</small>
+    <button class="action" onclick="product('Desktop Computer')">Details</button>
+   </div>
+
+   <div class="card">
+    <span class="icon">💻</span><b>Laptop</b>
+    <small>Study, Office ও Work</small>
+    <button class="action" onclick="product('Laptop')">Details</button>
+   </div>
+
+   <div class="card">
+    <span class="icon">🖨️</span><b>Printer</b>
+    <small>Sale ও Service</small>
+    <button class="action" onclick="product('Printer')">Details</button>
+   </div>
+
+   <div class="card">
+    <span class="icon">📹</span><b>CCTV Camera</b>
+    <small>Complete Installation</small>
+    <button class="action" onclick="product('CCTV Camera')">Details</button>
+   </div>
+
+   <div class="card">
+    <span class="icon">🖱️</span><b>Accessories</b>
+    <small>Keyboard, Mouse ও আরও</small>
+    <button class="action" onclick="product('Computer Accessories')">Details</button>
+   </div>
+
+   <div class="card">
+    <span class="icon">🪟</span><b>Software</b>
+    <small>Windows ও Office</small>
+    <button class="action" onclick="product('Windows and Software')">Details</button>
+   </div>
+  </div>
+ </section>
 </div>
 
-<div class="stats">
- <div class="stat"><b>5000+</b><small>Customers</small></div>
- <div class="stat"><b>100+</b><small>Reviews</small></div>
- <div class="stat"><b>7 Days</b><small>Support</small></div>
+<div id="service" class="page">
+ <section>
+  <h2 class="title">🔧 Repair & Service Request</h2>
+
+  <form onsubmit="sendService(event)">
+   <label>Customer Name</label>
+   <input id="customerName" required placeholder="আপনার নাম">
+
+   <label>Mobile Number</label>
+   <input id="customerPhone" type="tel" required placeholder="আপনার মোবাইল নম্বর">
+
+   <label>Device/Service</label>
+   <select id="device">
+    <option>Desktop Repair</option>
+    <option>Laptop Repair</option>
+    <option>Printer Service</option>
+    <option>CCTV Service</option>
+    <option>Windows/Software</option>
+    <option>AnyDesk Online Support</option>
+   </select>
+
+   <label>সমস্যার বিবরণ</label>
+   <textarea id="problem" required placeholder="সমস্যাটি লিখুন"></textarea>
+
+   <button class="submit" type="submit">WhatsApp-এ Request পাঠান</button>
+  </form>
+ </section>
 </div>
 
-<section class="offer">
- <h2>⚡ আজকের বিশেষ অফার</h2>
- <p>নতুন Full Desktop Computer</p>
- <strong>₹9,900/- থেকে</strong>
- <p>সীমিত স্টক • শর্ত প্রযোজ্য</p>
-</section>
+<div id="support" class="page">
+ <section>
+  <h2 class="title">☎️ Customer Support</h2>
 
-<section id="sale">
- <h2 class="title">🛍️ Products & Sale</h2>
+  <p>
+   <b>SUVAM COMPUTER</b><br><br>
+   কোয়ালপাড়া, কোতুলপুর, বাঁকুড়া<br>
+   Desktop • Laptop • Printer • CCTV • Software
+  </p>
 
- <div class="grid">
-  <div class="card"><span class="icon">🖥️</span><b>Desktop PC</b><small>Custom ও Ready Build</small></div>
-  <div class="card"><span class="icon">💻</span><b>Laptop</b><small>New Model ও Offer</small></div>
-  <div class="card"><span class="icon">🖨️</span><b>Printer</b><small>Sales ও Service</small></div>
-  <div class="card"><span class="icon">📹</span><b>CCTV</b><small>Complete Installation</small></div>
-  <div class="card"><span class="icon">🖱️</span><b>Accessories</b><small>Keyboard, Mouse ও আরও</small></div>
-  <div class="card"><span class="icon">🪟</span><b>Original Windows</b><small>Windows 10/11 OEM</small></div>
-  <div class="card"><span class="icon">🎓</span><b>Student PC</b><small>Study ও Online Class</small></div>
-  <div class="card"><span class="icon">🎮</span><b>Gaming PC</b><small>Powerful Custom Build</small></div>
- </div>
-</section>
+  <a class="whatsapp"
+     href="https://wa.me/918345905814?text=Hello%20Suvam%20Computer"
+     target="_blank">💬 WhatsApp: 8345905814</a>
 
-<section id="service">
- <h2 class="title">🔧 Repair & Service</h2>
+  <a class="call" href="tel:+918345905814">📞 Call: 8345905814</a>
 
- <div class="grid">
-  <div class="card"><span class="icon">🛠️</span><b>Desktop Repair</b><small>Hardware ও Software</small></div>
-  <div class="card"><span class="icon">🔩</span><b>Laptop Repair</b><small>Diagnosis ও Service</small></div>
-  <div class="card"><span class="icon">🖨️</span><b>Printer Service</b><small>Repair ও Maintenance</small></div>
-  <div class="card"><span class="icon">🌐</span><b>Online Support</b><small>AnyDesk Assistance</small></div>
- </div>
-</section>
-
-<section>
- <h2 class="title">⭐ Customer Reviews</h2>
-
- <div class="review active">
-  <div class="stars">★★★★★</div>
-  <p>“Reasonable price এবং খুব ভালো service। সামনে product test করে দেওয়া হয়েছে।”</p>
-  <b>— Happy Customer</b>
- </div>
-
- <div class="review">
-  <div class="stars">★★★★★</div>
-  <p>“Computer setup ও software installation খুব সুন্দরভাবে করে দিয়েছেন।”</p>
-  <b>— Local Customer</b>
- </div>
-
- <div class="review">
-  <div class="stars">★★★★★</div>
-  <p>“Sales-এর পরেও দ্রুত support পাওয়া যায়। খুবই বিশ্বস্ত দোকান।”</p>
-  <b>— Verified Buyer</b>
- </div>
-</section>
-
-<section id="support">
- <h2 class="title">☎️ Customer Support</h2>
-
- <p>
-  <b>SUVAM COMPUTER</b><br><br>
-  কোয়ালপাড়া, কোতুলপুর, বাঁকুড়া<br>
-  Desktop • Laptop • Printer • CCTV • Software
- </p>
-
- <div class="buttons">
-  <a class="btn whatsapp" href="https://wa.me/918345905814?text=Hello%20Suvam%20Computer%2C%20I%20want%20product%20or%20service%20details." target="_blank">💬 WhatsApp</a>
-  <a class="btn call" href="tel:+918345905814">📞 8345905814</a>
-  <a class="btn map"
+  <a class="map"
      href="https://www.google.com/maps/search/?api=1&query=Koalpara+Kotulpur+Bankura"
-     target="_blank">📍 দোকানের Location</a>
- </div>
-</section>
+     target="_blank">📍 দোকানের Location দেখুন</a>
+ </section>
+</div>
 
-</main>
+<div id="productModal" class="modal">
+ <div class="modalBox">
+  <button class="close" onclick="closeModal()">×</button>
+  <h2 id="productTitle">Product Details</h2>
+  <p>বর্তমান দাম, configuration ও offer জানতে WhatsApp করুন।</p>
+  <a id="orderBtn" class="whatsapp" target="_blank">WhatsApp Order করুন</a>
+ </div>
+</div>
 
 <footer>
- <b>SUVAM COMPUTER</b><br><br>
+ <img src="suvam_logo.png"><br><br>
+ <b>SUVAM COMPUTER</b><br>
  আপনার প্রযুক্তির সঠিক সঙ্গী<br><br>
  Design by Suvam Computer
 </footer>
 
-<a class="float" href="https://wa.me/" target="_blank">✆</a>
+<a class="float"
+ href="https://wa.me/918345905814?text=Hello%20Suvam%20Computer"
+ target="_blank">✆</a>
 
 <script>
+let animations=true;
+let current=0;
+let review=0;
+
 const slides=document.querySelectorAll(".slide");
 const dots=document.querySelectorAll(".dot");
-let current=0;
+const reviews=document.querySelectorAll(".review");
 
-function showSlide(number){
+function openPage(id,button){
+ document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+ document.querySelectorAll(".navBtn").forEach(b=>b.classList.remove("active"));
+ document.getElementById(id).classList.add("active");
+ button.classList.add("active");
+ window.scrollTo(0,0);
+}
+
+function openPageByName(id){
+ const names=["home","sale","service","support"];
+ const index=names.indexOf(id);
+ openPage(id,document.querySelectorAll(".navBtn")[index]);
+}
+
+function toggleAnimation(){
+ animations=!animations;
+ document.body.classList.toggle("paused");
+ document.querySelector(".toggle").innerHTML=
+ animations?"⏸ Animation":"▶ Animation";
+}
+
+function showSlide(){
+ if(!animations)return;
  slides[current].classList.remove("active");
  dots[current].classList.remove("active");
- current=number%slides.length;
+ current=(current+1)%slides.length;
  slides[current].classList.add("active");
  dots[current].classList.add("active");
 }
 
-setInterval(function(){
- showSlide(current+1);
-},4000);
-
-dots.forEach(function(dot,index){
- dot.onclick=function(){showSlide(index)};
-});
-
-const reviews=document.querySelectorAll(".review");
-let review=0;
-
-setInterval(function(){
+function showReview(){
+ if(!animations)return;
  reviews[review].classList.remove("active");
  review=(review+1)%reviews.length;
  reviews[review].classList.add("active");
-},3500);
+}
+
+setInterval(showSlide,4000);
+setInterval(showReview,3500);
+
+function product(name){
+ document.getElementById("productTitle").innerText=name;
+ document.getElementById("orderBtn").href=
+ "https://wa.me/918345905814?text="+
+ encodeURIComponent("Hello Suvam Computer, I want details about "+name);
+ document.getElementById("productModal").classList.add("show");
+}
+
+function closeModal(){
+ document.getElementById("productModal").classList.remove("show");
+}
+
+function sendService(event){
+ event.preventDefault();
+
+ const name=document.getElementById("customerName").value;
+ const phone=document.getElementById("customerPhone").value;
+ const device=document.getElementById("device").value;
+ const problem=document.getElementById("problem").value;
+
+ const message=
+ "SUVAM COMPUTER SERVICE REQUEST\n"+
+ "Customer: "+name+"\n"+
+ "Phone: "+phone+"\n"+
+ "Service: "+device+"\n"+
+ "Problem: "+problem;
+
+ window.location.href=
+ "https://wa.me/918345905814?text="+encodeURIComponent(message);
+}
 </script>
 
 </body>
