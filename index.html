@@ -104,8 +104,31 @@ nav button.active{background:linear-gradient(135deg,#0787f3,#13c8dc)}
 .dot.active{width:25px;background:#58eaff}
 
 .watermark{
- position:fixed;z-index:-1;right:-20px;bottom:50px;
- width:230px;opacity:.035;pointer-events:none
+ position:fixed;
+ z-index:0;
+ right:-25px;
+ bottom:75px;
+ width:290px;
+ opacity:.12;
+ pointer-events:none;
+ filter:drop-shadow(0 0 18px #35cfff);
+ animation:watermarkGlow 3s ease-in-out infinite;
+}
+
+@keyframes watermarkGlow{
+ 0%,100%{
+  opacity:.08;
+  transform:scale(1);
+ }
+ 50%{
+  opacity:.16;
+  transform:scale(1.04);
+ }
+}
+
+header,nav,.page,footer,.strip{
+ position:relative;
+ z-index:1;
 }
 
 section{
