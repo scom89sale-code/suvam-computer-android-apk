@@ -25,7 +25,27 @@ body.paused *{animation-play-state:paused!important}
  animation:running 22s linear infinite
 }
 @keyframes running{to{transform:translateX(-100%)}}
+.service-strip{
+ overflow:hidden;
+ padding:10px 0;
+ white-space:nowrap;
+ background:linear-gradient(90deg,#0066ff,#00d4ff,#0066ff);
+ color:white;
+ font-size:14px;
+ font-weight:bold;
+ border-top:1px solid #ffffff44;
+ border-bottom:1px solid #ffffff44;
+}
 
+.service-running{
+ display:inline-block;
+ padding-left:100%;
+ animation:serviceRunning 32s linear infinite;
+}
+
+@keyframes serviceRunning{
+ to{transform:translateX(-100%)}
+}
 header{
  padding:15px;background:#04142de8;
  display:flex;align-items:center;justify-content:space-between
@@ -227,7 +247,12 @@ footer img{width:65px;height:65px;object-fit:contain;border-radius:16px}
  WhatsApp: 8345905814 • SUVAM COMPUTER
  </div>
 </div>
-
+ 
+<div class="service-strip">
+ <div class="service-running">
+  📍 আমাদের সার্ভিস এরিয়া Available — বাঁকুড়া • বিষ্ণুপুর • জয়পুর • বাঁকাদহ • বৈতল • রামডিহা • জয়রামবাটি • বদনগঞ্জ • সন্ধিপুর • রামজীবনপুর • হাজীপুর • কামারপুকুর • আরামবাগ • খানাকুল • চাঁপাডাঙা • বেঙ্গাই • একলক্ষী • কোতুলপুর ইত্যাদি •
+ </div>
+</div>
 <header>
  <div class="brand">
   <img class="logo" src="suvam_logo.png">
@@ -237,6 +262,7 @@ footer img{width:65px;height:65px;object-fit:contain;border-radius:16px}
   </div>
  </div>
  <button class="toggle" onclick="toggleAnimation()">⏸ Animation</button>
+ 
 </header>
 
 <nav>
@@ -526,7 +552,10 @@ function sendService(event){
  window.location.href=
  "https://wa.me/918345905814?text="+encodeURIComponent(message);
 }
-document.querySelector(".slider").after(document.querySelector(".strip"));
+document.querySelector(".slider").after(
+ document.querySelector(".strip"),
+ document.querySelector(".service-strip")
+);
 </script>
 
 </body>
