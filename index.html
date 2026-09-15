@@ -7,6 +7,7 @@
 <title>SUVAM COMPUTER</title>
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+ <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -411,6 +412,146 @@ footer img{width:65px;height:65px;object-fit:contain;border-radius:16px}
  color:white;text-decoration:none;font-size:27px;
  box-shadow:0 8px 25px #0009
 }
+ header{
+ justify-content:flex-start;
+}
+
+.brand{
+ display:flex;
+ align-items:center;
+ gap:8px;
+}
+
+.logo-design{
+ position:relative;
+ width:92px;
+ height:88px;
+ flex-shrink:0;
+}
+
+.logo-design .logo{
+ width:76px;
+ height:76px;
+ border-radius:20px;
+ object-fit:contain;
+ background:white;
+ box-shadow:
+  0 0 8px #ffffff,
+  0 0 20px #00d9ff,
+  0 0 32px #0077ff;
+ animation:logoPulse 2.2s ease-in-out infinite;
+}
+
+.mouse-cable{
+ position:absolute;
+ left:52px;
+ top:60px;
+ width:32px;
+ height:20px;
+ border-right:3px solid #54efff;
+ border-bottom:3px solid #54efff;
+ border-radius:0 0 20px 0;
+ transform-origin:left top;
+ filter:drop-shadow(0 0 5px #00d9ff);
+ animation:cableMove 1.5s ease-in-out infinite;
+}
+
+.mini-mouse{
+ position:absolute;
+ left:75px;
+ top:70px;
+ font-size:20px;
+ filter:drop-shadow(0 0 6px #00eaff);
+ animation:mouseMove 1.5s ease-in-out infinite;
+}
+
+@keyframes logoPulse{
+ 0%,100%{transform:scale(1)}
+ 50%{transform:scale(1.06)}
+}
+
+@keyframes cableMove{
+ 0%,100%{transform:rotate(-5deg)}
+ 50%{transform:rotate(9deg)}
+}
+
+@keyframes mouseMove{
+ 0%,100%{transform:translate(0,0) rotate(-5deg)}
+ 50%{transform:translate(4px,3px) rotate(7deg)}
+}
+
+.brand h1{
+ margin:0;
+ font-family:"Poppins",Arial,sans-serif;
+ font-size:clamp(21px,5.7vw,28px);
+ font-weight:900;
+ letter-spacing:.7px;
+ white-space:nowrap;
+ background:linear-gradient(
+  90deg,
+  #ffffff,
+  #00eaff,
+  #fff700,
+  #ff4da6,
+  #ffffff
+ );
+ background-size:300% auto;
+ -webkit-background-clip:text;
+ -webkit-text-fill-color:transparent;
+ filter:drop-shadow(0 0 7px #00c8ff);
+ animation:brandShine 5s linear infinite,
+           brandFloat 2.4s ease-in-out infinite;
+}
+
+@keyframes brandShine{
+ from{background-position:300% center}
+ to{background-position:-300% center}
+}
+
+@keyframes brandFloat{
+ 0%,100%{transform:translateY(0)}
+ 50%{transform:translateY(-2px)}
+}
+
+/* Facebook, WhatsApp ও Instagram Sidebar */
+.social-icons{
+ position:fixed;
+ z-index:100;
+ right:7px;
+ top:46%;
+ transform:translateY(-50%);
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ gap:9px;
+ margin:0;
+ padding:8px 6px;
+ border-radius:22px;
+ background:#03152dcc;
+ border:1px solid #ffffff44;
+ box-shadow:0 5px 22px #0009;
+ backdrop-filter:blur(8px);
+}
+
+.social-icons a{
+ width:40px;
+ height:40px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ border-radius:50%;
+ color:white;
+ text-decoration:none;
+ font-size:20px;
+ border:1px solid #ffffff66;
+ box-shadow:0 0 12px #00d9ff88;
+ animation:socialGlow 2.2s ease-in-out infinite;
+}
+
+@keyframes socialGlow{
+ 0%,100%{transform:scale(1)}
+ 50%{transform:scale(1.08)}
+}
 </style>
 </head>
 
@@ -431,7 +572,11 @@ footer img{width:65px;height:65px;object-fit:contain;border-radius:16px}
 </div>
 <header>
  <div class="brand">
-  <img class="logo" src="s_watermark.png" alt="SUVAM COMPUTER">
+  <div class="logo-design">
+ <img class="logo" src="s_watermark.png" alt="SUVAM COMPUTER">
+ <span class="mouse-cable"></span>
+ <span class="mini-mouse">🖱️</span>
+</div>
   <div>
    <h1>SUVAM COMPUTER</h1>
    <div class="tag">আপনার প্রযুক্তির সঠিক সঙ্গী</div>
