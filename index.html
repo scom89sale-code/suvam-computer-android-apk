@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#061631">
 <title>SUVAM COMPUTER</title>
-
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
  margin:0;color:#fff;overflow-x:hidden;
- font-family:Arial,"Noto Sans Bengali",sans-serif;
+ font-family:"Hind Siliguri","Noto Sans Bengali",Arial,sans-serif;
  background:linear-gradient(145deg,#02091b,#073b74);
 }
 body.paused *{animation-play-state:paused!important}
@@ -101,13 +101,12 @@ nav button.active{background:linear-gradient(135deg,#0787f3,#13c8dc)}
  box-shadow:0 5px 18px #0006;
 }
 
-.delivery-running{
- display:inline-flex;
- align-items:center;
- gap:10px;
- white-space:nowrap;
- animation:deliveryMove 16s linear infinite;
-}
+<div class="delivery-running">
+ <span class="delivery-car">🚚</span>
+ <span class="delivery-text">
+  <strong>SUVAM COMPUTER</strong> থেকে আপনার বাড়িতে পৌঁছে যাবে 🏠
+ </span>
+</div>
 
 .delivery-car{
  display:inline-block;
@@ -129,13 +128,13 @@ nav button.active{background:linear-gradient(135deg,#0787f3,#13c8dc)}
 }
 
 @keyframes carBounce{
- 0%,100%{transform:scaleX(-1) translateY(0)}
- 50%{transform:scaleX(-1) translateY(-3px)}
+ 0%,100%{transform:translateY(0)}
+ 50%{transform:translateY(-3px)}
 }
 
 @keyframes deliveryMove{
- from{transform:translateX(-110%)}
- to{transform:translateX(100vw)}
+ from{transform:translateX(100vw)}
+ to{transform:translateX(-100%)}
 }
 
 @keyframes deliveryColour{
