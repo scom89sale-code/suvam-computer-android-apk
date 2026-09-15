@@ -88,9 +88,40 @@ nav button.active{background:linear-gradient(135deg,#0787f3,#13c8dc)}
 .page{display:none;animation:page .4s}
 .page.active{display:block}
 @keyframes page{from{opacity:0;transform:translateY(8px)}}
+.delivery-strip{
+ overflow:hidden;
+ white-space:nowrap;
+ margin:8px 14px 0;
+ padding:9px 0;
+ border-radius:14px;
+ border:1px solid #ffffff55;
+ background:linear-gradient(90deg,#ff5500,#ff0080,#006cff,#00c853);
+ background-size:300% 100%;
+ animation:deliveryColour 5s ease infinite;
+ box-shadow:0 5px 18px #0006;
+}
 
+.delivery-running{
+ display:inline-block;
+ color:white;
+ font-size:15px;
+ font-weight:bold;
+ text-shadow:0 2px 5px #000;
+ animation:deliveryMove 9s linear infinite;
+}
+
+@keyframes deliveryMove{
+ from{transform:translateX(-110%)}
+ to{transform:translateX(100vw)}
+}
+
+@keyframes deliveryColour{
+ 0%{background-position:0% 50%}
+ 50%{background-position:100% 50%}
+ 100%{background-position:0% 50%}
+}
 .slider{
- position:relative;height:310px;margin:14px;
+ position:relative;height:270px;margin:10px 14px 14px;
  border-radius:24px;overflow:hidden;
  box-shadow:0 15px 35px #0009
 }
@@ -322,6 +353,12 @@ footer img{width:65px;height:65px;object-fit:contain;border-radius:16px}
 </nav>
 
 <div id="home" class="page active">
+
+ <div class="delivery-strip">
+  <div class="delivery-running">
+   🛵💨 SUVAM COMPUTER — আপনার বাড়িতে পৌঁছে যাচ্ছে পছন্দের Computer, Laptop, Printer ও Accessories 🏠
+  </div>
+ </div>
 
  <div class="slider">
 
