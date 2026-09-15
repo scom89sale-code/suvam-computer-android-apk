@@ -263,7 +263,7 @@ footer img{width:65px;height:65px;object-fit:contain;border-radius:16px}
 </div>
 <header>
  <div class="brand">
-  <img class="logo" src="suvam_logo.png">
+  <img class="logo" src="s_watermark.png" alt="SUVAM COMPUTER">
   <div>
    <h1>SUVAM COMPUTER</h1>
    <div class="tag">আপনার প্রযুক্তির সঠিক সঙ্গী</div>
@@ -560,9 +560,14 @@ function sendService(event){
  window.location.href=
  "https://wa.me/918345905814?text="+encodeURIComponent(message);
 }
+document.querySelector("header").after(
+ document.querySelector(".slider")
+);
+
 document.querySelector(".slider").after(
  document.querySelector(".strip"),
- document.querySelector(".service-strip")
+ document.querySelector(".service-strip"),
+ document.querySelector("nav")
 );
 </script>
 
