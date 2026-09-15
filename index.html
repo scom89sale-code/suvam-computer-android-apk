@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -759,6 +760,307 @@ footer img{width:65px;height:65px;object-fit:contain;border-radius:16px}
  from{stroke-dashoffset:32}
  to{stroke-dashoffset:0}
 }
+ /* COMPUTER DHAMAKA SALE — ANIMATED DESIGN */
+.offer{
+ position:relative;
+ isolation:isolate;
+ overflow:hidden;
+ text-align:center;
+ padding:30px 18px;
+ border-radius:26px;
+ border:2px solid #ffffff88;
+ background:linear-gradient(
+  135deg,
+  #ff4200,
+  #ff0062,
+  #7b00d9,
+  #006eff,
+  #ff4200
+ );
+ background-size:400% 400%;
+ box-shadow:
+  0 12px 35px #0009,
+  0 0 18px #ff008899,
+  inset 0 0 22px #ffffff22;
+ animation:offerWallpaper 10s ease infinite;
+}
+
+/* Animated glowing wallpaper */
+.offer::before{
+ content:"";
+ position:absolute;
+ z-index:-2;
+ inset:-60%;
+ background:
+  radial-gradient(circle at 25% 25%,#fff70088 0 4%,transparent 18%),
+  radial-gradient(circle at 75% 35%,#00eaff88 0 5%,transparent 20%),
+  radial-gradient(circle at 50% 80%,#ffffff55 0 3%,transparent 18%);
+ animation:offerLights 9s linear infinite;
+}
+
+/* চলন্ত আলো */
+.offer::after{
+ content:"";
+ position:absolute;
+ z-index:-1;
+ top:-80%;
+ left:-60%;
+ width:45%;
+ height:260%;
+ background:linear-gradient(
+  90deg,
+  transparent,
+  #ffffff55,
+  transparent
+ );
+ transform:rotate(25deg);
+ animation:offerShine 5s ease-in-out infinite;
+}
+
+.offer h2,
+.offer p,
+.offer strong,
+.offer button{
+ position:relative;
+ z-index:2;
+}
+
+.offer h2{
+ margin:0 0 18px;
+ color:#ffffff;
+ font-size:clamp(25px,7vw,36px);
+ font-weight:900;
+ text-align:center;
+ letter-spacing:.4px;
+ text-shadow:
+  0 2px 4px #000000,
+  0 0 9px #ffffff,
+  0 0 18px #ffdd00;
+ animation:offerTitle 2.5s ease-in-out infinite;
+}
+
+.offer p{
+ margin:13px auto;
+ text-align:center;
+ color:#ffffff;
+ font-size:clamp(17px,4.7vw,22px);
+ font-weight:600;
+ line-height:1.5;
+ text-shadow:
+  0 2px 4px #000000,
+  0 0 8px #00d9ff;
+}
+
+/* ₹৯,৯০০ Price Focus */
+.offer strong{
+ display:inline-block;
+ margin:18px auto;
+ padding:10px 18px;
+ border-radius:18px;
+ color:#fff700;
+ font-size:clamp(35px,9vw,55px);
+ font-weight:900;
+ line-height:1.2;
+ background:linear-gradient(135deg,#00000055,#ff450066);
+ border:2px solid #fff700;
+ box-shadow:
+  0 0 8px #ffffff,
+  0 0 18px #fff700,
+  0 0 32px #ff4d00,
+  inset 0 0 15px #fff70033;
+ text-shadow:
+  0 3px 3px #8b0000,
+  0 0 8px #ffffff,
+  0 0 18px #fff700;
+ animation:priceFocus 1.8s ease-in-out infinite;
+}
+
+.offer .action{
+ margin:22px auto 0;
+ min-height:48px;
+ font-family:"Hind Siliguri",sans-serif;
+ font-size:19px;
+ font-weight:800;
+ color:#ffffff;
+ border:1px solid #ffffffaa;
+ background:linear-gradient(
+  90deg,#006eff,#00c6ff,#006eff
+ );
+ background-size:200% auto;
+ box-shadow:
+  0 7px 18px #001c7099,
+  0 0 12px #00d9ff;
+ animation:offerButton 3s linear infinite;
+}
+
+@keyframes offerWallpaper{
+ 0%{background-position:0% 50%}
+ 50%{background-position:100% 50%}
+ 100%{background-position:0% 50%}
+}
+
+@keyframes offerLights{
+ from{transform:rotate(0deg) scale(1)}
+ to{transform:rotate(360deg) scale(1.15)}
+}
+
+@keyframes offerShine{
+ 0%,25%{left:-70%}
+ 70%,100%{left:140%}
+}
+
+@keyframes offerTitle{
+ 0%,100%{transform:translateY(0) scale(1)}
+ 50%{transform:translateY(-3px) scale(1.03)}
+}
+
+@keyframes priceFocus{
+ 0%,100%{
+  transform:scale(1);
+  filter:brightness(1);
+ }
+ 50%{
+  transform:scale(1.06);
+  filter:brightness(1.25);
+ }
+}
+
+@keyframes offerButton{
+ from{background-position:200% center}
+ to{background-position:-200% center}
+}
+ header{
+ padding:12px 15px;
+ display:flex;
+ align-items:center;
+ background:linear-gradient(120deg,#010817,#03234b,#010817);
+ border-bottom:1px solid #00d9ff55;
+ box-shadow:0 5px 22px #0008;
+}
+
+.brand{
+ display:flex;
+ align-items:center;
+ gap:13px;
+}
+
+.brand .logo{
+ width:72px;
+ height:72px;
+ object-fit:contain;
+ flex-shrink:0;
+ border-radius:18px;
+ background:#ffffff;
+ border:1px solid #ffffff;
+ box-shadow:
+  0 0 8px #ffffff,
+  0 0 20px #00d9ff,
+  0 0 32px #006eff;
+ animation:techLogoPulse 2.5s ease-in-out infinite;
+}
+
+.tech-heading{
+ position:relative;
+ line-height:1;
+}
+
+.suvam-title{
+ font-family:"Orbitron",Arial,sans-serif;
+ font-size:clamp(29px,8vw,40px);
+ font-weight:900;
+ letter-spacing:3px;
+ white-space:nowrap;
+ background:linear-gradient(
+  90deg,#ffffff,#00eaff,#ffffff,#4b8cff
+ );
+ background-size:250% auto;
+ -webkit-background-clip:text;
+ -webkit-text-fill-color:transparent;
+ filter:drop-shadow(0 0 8px #00cfff);
+ animation:suvamTechShine 5s linear infinite;
+}
+
+.computer-title{
+ display:inline-block;
+ margin-top:7px;
+ padding:4px 10px;
+ font-family:"Orbitron",Arial,sans-serif;
+ font-size:clamp(13px,4vw,18px);
+ font-weight:700;
+ letter-spacing:6px;
+ color:#65f3ff;
+ border-left:3px solid #00eaff;
+ border-right:3px solid #00eaff;
+ background:linear-gradient(
+  90deg,#00eaff22,#ffffff22,#00eaff22
+ );
+ background-size:250% 100%;
+ text-shadow:
+  0 0 5px #ffffff,
+  0 0 11px #00d9ff;
+ box-shadow:
+  inset 0 0 10px #00d9ff22,
+  0 0 8px #00d9ff55;
+ animation:computerScan 3s linear infinite;
+}
+
+@keyframes techLogoPulse{
+ 0%,100%{transform:scale(1)}
+ 50%{transform:scale(1.05)}
+}
+
+@keyframes suvamTechShine{
+ from{background-position:250% center}
+ to{background-position:-250% center}
+}
+
+@keyframes computerScan{
+ from{background-position:250% center}
+ to{background-position:-250% center}
+}
+ .occasionSlide{
+ background:
+  radial-gradient(circle at 70% 35%,#ffd90099,transparent 24%),
+  radial-gradient(circle at 30% 75%,#ff660088,transparent 28%),
+  linear-gradient(135deg,#16091f,#5e2508,#10182d);
+ background-size:180% 180%;
+ animation:occasionBackground 8s ease-in-out infinite;
+}
+
+.occasionSlide:after{
+ background:linear-gradient(90deg,#080414dd,#4e200655,#08041499);
+}
+
+.occasionText{
+ left:20px;
+ right:20px;
+ text-align:center;
+}
+
+.occasionText h2{
+ color:#ffe0a0;
+ text-shadow:0 0 8px #ffffff,0 0 18px #ff8500;
+ animation:occasionTitle 2.2s ease-in-out infinite;
+}
+
+.occasionBrand{
+ color:#ffffff;
+ font-family:"Orbitron",Arial,sans-serif;
+ font-size:23px;
+ font-weight:900;
+ letter-spacing:2px;
+ text-shadow:0 0 8px #fff000,0 0 18px #ff6600;
+}
+
+@keyframes occasionBackground{
+ 0%,100%{background-position:0% 50%}
+ 50%{background-position:100% 50%}
+}
+
+@keyframes occasionTitle{
+ 0%,100%{transform:scale(1)}
+ 50%{transform:scale(1.05)}
+}
 </style>
 </head>
 
@@ -778,81 +1080,38 @@ footer img{width:65px;height:65px;object-fit:contain;border-radius:16px}
  </div>
 </div>
 <header>
+
  <div class="brand">
+  <img class="logo" src="s_watermark.png" alt="SUVAM COMPUTER">
 
- <img class="logo" src="s_watermark.png" alt="SUVAM COMPUTER">
-
- <div class="tech-wordmark">
-
-  <div class="suvam-name">SUVAM</div>
-
-  <div class="computer-name" aria-label="COMPUTER">
-
-   <span>C</span>
-
-   <span class="mouse-o">
-    <svg viewBox="0 0 36 46" aria-hidden="true">
-     <rect x="4" y="2" width="28" height="40" rx="14"></rect>
-     <path d="M18 3V14"></path>
-     <circle cx="18" cy="10" r="2"></circle>
-    </svg>
-   </span>
-
-   <span>MPUTER</span>
-
-   <span class="mini-monitor">
-    <svg viewBox="0 0 54 44" aria-hidden="true">
-     <rect x="3" y="3" width="48" height="30" rx="4"></rect>
-     <path d="M21 34V39M33 34V39M16 40H38"></path>
-    </svg>
-   </span>
-
-   <svg class="abstract-cable"
-        viewBox="0 0 300 45"
-        preserveAspectRatio="none"
-        aria-hidden="true">
-    <path d="M34 8 C70 44,105 -5,145 22 S220 45,286 10"></path>
-   </svg>
-
-  </div>
-
-  <div class="brand-tagline">
-   আপনার প্রযুক্তির সঠিক সঙ্গী
-  </div>
-
- </div>
-</div>
- 
-   <div class="social-icons">
-
- <a class="facebook"
-    href="https://www.facebook.com/share/1LMRNpXv94/"
-    target="_blank"
-    rel="noopener"
-    aria-label="Facebook">
-  <i class="fa-brands fa-facebook-f"></i>
- </a>
-
- <a class="whatsapp-icon"
-    href="https://wa.me/918345905814"
-    target="_blank"
-    rel="noopener"
-    aria-label="WhatsApp">
-  <i class="fa-brands fa-whatsapp"></i>
- </a>
-
- <a class="instagram"
-    href="https://www.instagram.com/suvam_computer?stkn=bjQ3a3Z5cTliajl0"
-    target="_blank"
-    rel="noopener"
-    aria-label="Instagram">
-  <i class="fa-brands fa-instagram"></i>
- </a>
-
-</div>
+  <div class="tech-heading">
+   <div class="suvam-title">SUVAM</div>
+   <div class="computer-title">COMPUTER</div>
   </div>
  </div>
- 
+
+ <div class="social-icons">
+
+  <a class="facebook"
+     href="https://www.facebook.com/share/1LMRNpXv94/"
+     target="_blank" rel="noopener">
+   <i class="fa-brands fa-facebook-f"></i>
+  </a>
+
+  <a class="whatsapp-icon"
+     href="https://wa.me/918345905814"
+     target="_blank" rel="noopener">
+   <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <a class="instagram"
+     href="https://www.instagram.com/suvam_computer?stkn=bjQ3a3Z5cTliajl0"
+     target="_blank" rel="noopener">
+   <i class="fa-brands fa-instagram"></i>
+  </a>
+
+ </div>
+
 </header>
 
 <nav>
@@ -945,6 +1204,14 @@ footer img{width:65px;height:65px;object-fit:contain;border-radius:16px}
   <p>Mouse • Keyboard • Bag • Charger • Cooling Pad</p>
  </div>
 </div>
+  <div class="slide occasionSlide">
+ <div class="slideText occasionText">
+  <span class="badge">FESTIVE GREETINGS</span>
+  <h2>বিশেষ দিনের আন্তরিক শুভেচ্ছা</h2>
+  <div class="occasionBrand">SUVAM COMPUTER</div>
+  <p>আনন্দ ও সাফল্যে ভরে উঠুক আপনার প্রতিটি দিন</p>
+ </div>
+</div>
   <div class="dots">
  <i class="dot active"></i>
  <i class="dot"></i>
@@ -953,7 +1220,8 @@ footer img{width:65px;height:65px;object-fit:contain;border-radius:16px}
  <i class="dot"></i>
  <i class="dot"></i>
  <i class="dot"></i>
-  <i class="dot"></i>
+ <i class="dot"></i>
+ <i class="dot"></i>
 </div>
 
 </div>
