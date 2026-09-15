@@ -403,11 +403,14 @@ footer img{width:65px;height:65px;object-fit:contain;border-radius:16px}
  </div>
 
  <section class="offer">
-  <h2>⚡ Computer Dhamaka Sale</h2>
-  <p>Full Desktop Computer</p>
-  <strong>₹9,900/- থেকে</strong>
-  <button class="action" onclick="openPageByName('sale')">Offer দেখুন</button>
- </section>
+ <h2>⚡ Computer Dhamaka Sale</h2>
+ <p>আপনার বাড়ির জন্য সম্পূর্ণ Desktop Setup</p>
+ <strong>মাত্র ₹৯,৯০০/- থেকে শুরু!</strong>
+ <p>পড়াশোনা • অফিস • অনলাইন কাজের জন্য প্রস্তুত</p>
+ <button class="action" onclick="openPageByName('sale')">
+  আজই অফার দেখুন
+ </button>
+</section>
 
  <section>
   <h2 class="title">⭐ Customer Reviews</h2>
@@ -638,14 +641,9 @@ function sendService(event){
  window.location.href=
  "https://wa.me/918345905814?text="+encodeURIComponent(message);
 }
-document.querySelector("header").after(
- document.querySelector(".slider")
-);
-
 document.querySelector(".slider").after(
  document.querySelector(".strip"),
- document.querySelector(".service-strip"),
- document.querySelector("nav")
+ document.querySelector(".service-strip")
 );
 </script>
 
