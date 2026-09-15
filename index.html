@@ -552,6 +552,213 @@ footer img{width:65px;height:65px;object-fit:contain;border-radius:16px}
  0%,100%{transform:scale(1)}
  50%{transform:scale(1.08)}
 }
+ header{
+ padding:11px 10px;
+ overflow:visible;
+}
+
+.brand{
+ display:flex;
+ align-items:center;
+ gap:7px;
+ width:100%;
+ overflow:visible;
+}
+
+.brand > .logo{
+ width:68px;
+ height:68px;
+ flex-shrink:0;
+ border-radius:18px;
+ object-fit:contain;
+ background:#ffffff;
+ box-shadow:
+  0 0 8px #ffffff,
+  0 0 18px #00d9ff,
+  0 0 28px #006eff;
+ animation:mainLogoGlow 2.4s ease-in-out infinite;
+}
+
+.tech-wordmark{
+ position:relative;
+ flex:1;
+ min-width:0;
+ overflow:visible;
+}
+
+.suvam-name{
+ font-family:"Poppins",Arial,sans-serif;
+ font-size:clamp(22px,7vw,30px);
+ line-height:1;
+ font-weight:900;
+ letter-spacing:2px;
+ background:linear-gradient(
+  90deg,#ffffff,#48efff,#fff200,#ff5ba7,#ffffff
+ );
+ background-size:300% auto;
+ -webkit-background-clip:text;
+ -webkit-text-fill-color:transparent;
+ filter:drop-shadow(0 0 6px #00cfff);
+ animation:wordmarkShine 5s linear infinite;
+}
+
+.computer-name{
+ position:relative;
+ z-index:2;
+ display:inline-flex;
+ align-items:center;
+ gap:1px;
+ margin-top:3px;
+ padding-bottom:12px;
+ color:#ffffff;
+ font-family:"Poppins",Arial,sans-serif;
+ font-size:clamp(19px,5.8vw,26px);
+ line-height:1;
+ font-weight:900;
+ letter-spacing:.3px;
+ white-space:nowrap;
+ text-shadow:
+  0 0 4px #ffffff,
+  0 0 9px #00cfff,
+  0 0 16px #006eff;
+ animation:computerGlow 2.5s ease-in-out infinite;
+}
+
+/* COMPUTER-এর O-এর জায়গায় Mouse */
+.mouse-o{
+ position:relative;
+ z-index:4;
+ width:25px;
+ height:30px;
+ display:inline-flex;
+ align-items:center;
+ justify-content:center;
+ margin:0 1px;
+}
+
+.mouse-o svg{
+ width:24px;
+ height:30px;
+ overflow:visible;
+ fill:#062b52;
+ stroke:#62f2ff;
+ stroke-width:2.5;
+ filter:
+  drop-shadow(0 0 3px #ffffff)
+  drop-shadow(0 0 7px #00d9ff);
+ animation:mousePulse 1.5s ease-in-out infinite;
+}
+
+/* COMPUTER শব্দের শেষে Monitor */
+.mini-monitor{
+ position:relative;
+ z-index:4;
+ display:inline-flex;
+ width:35px;
+ height:29px;
+ margin-left:4px;
+ align-items:center;
+ justify-content:center;
+}
+
+.mini-monitor svg{
+ width:35px;
+ height:29px;
+ fill:#073b70;
+ stroke:#72f3ff;
+ stroke-width:2.8;
+ stroke-linecap:round;
+ stroke-linejoin:round;
+ filter:
+  drop-shadow(0 0 4px #ffffff)
+  drop-shadow(0 0 9px #00cfff);
+ animation:monitorGlow 2s ease-in-out infinite;
+}
+
+/* Mouse থেকে Monitor পর্যন্ত Abstract Cable */
+.abstract-cable{
+ position:absolute;
+ z-index:1;
+ pointer-events:none;
+ left:0;
+ top:18px;
+ width:100%;
+ height:42px;
+ overflow:visible;
+}
+
+.abstract-cable path{
+ fill:none;
+ stroke:#5cf3ff;
+ stroke-width:2.6;
+ stroke-linecap:round;
+ stroke-dasharray:9 7;
+ filter:
+  drop-shadow(0 0 3px #ffffff)
+  drop-shadow(0 0 7px #00cfff);
+ animation:cableFlow 2.2s linear infinite;
+}
+
+/* নিচের বাংলা Tagline */
+.brand-tagline{
+ display:flex;
+ align-items:center;
+ gap:5px;
+ margin-top:2px;
+ color:#d8f8ff;
+ font-family:"Hind Siliguri",sans-serif;
+ font-size:13px;
+ font-weight:600;
+ white-space:nowrap;
+ letter-spacing:.25px;
+ text-shadow:
+  0 0 5px #00d9ff,
+  0 0 10px #0077ff;
+}
+
+.brand-tagline::before,
+.brand-tagline::after{
+ content:"";
+ height:1px;
+ flex:1;
+ max-width:22px;
+ background:linear-gradient(90deg,transparent,#64f3ff);
+ box-shadow:0 0 5px #00d9ff;
+}
+
+.brand-tagline::after{
+ background:linear-gradient(90deg,#64f3ff,transparent);
+}
+
+@keyframes mainLogoGlow{
+ 0%,100%{transform:scale(1)}
+ 50%{transform:scale(1.05)}
+}
+
+@keyframes wordmarkShine{
+ from{background-position:300% center}
+ to{background-position:-300% center}
+}
+
+@keyframes computerGlow{
+ 0%,100%{filter:brightness(1)}
+ 50%{filter:brightness(1.35)}
+}
+
+@keyframes mousePulse{
+ 0%,100%{transform:translateY(0) rotate(-3deg)}
+ 50%{transform:translateY(-3px) rotate(3deg)}
+}
+
+@keyframes monitorGlow{
+ 0%,100%{transform:scale(1)}
+ 50%{transform:scale(1.08)}
+}
+
+@keyframes cableFlow{
+ from{stroke-dashoffset:32}
+ to{stroke-dashoffset:0}
+}
 </style>
 </head>
 
@@ -572,14 +779,50 @@ footer img{width:65px;height:65px;object-fit:contain;border-radius:16px}
 </div>
 <header>
  <div class="brand">
-  <div class="logo-design">
+
  <img class="logo" src="s_watermark.png" alt="SUVAM COMPUTER">
- <span class="mouse-cable"></span>
- <span class="mini-mouse">🖱️</span>
+
+ <div class="tech-wordmark">
+
+  <div class="suvam-name">SUVAM</div>
+
+  <div class="computer-name" aria-label="COMPUTER">
+
+   <span>C</span>
+
+   <span class="mouse-o">
+    <svg viewBox="0 0 36 46" aria-hidden="true">
+     <rect x="4" y="2" width="28" height="40" rx="14"></rect>
+     <path d="M18 3V14"></path>
+     <circle cx="18" cy="10" r="2"></circle>
+    </svg>
+   </span>
+
+   <span>MPUTER</span>
+
+   <span class="mini-monitor">
+    <svg viewBox="0 0 54 44" aria-hidden="true">
+     <rect x="3" y="3" width="48" height="30" rx="4"></rect>
+     <path d="M21 34V39M33 34V39M16 40H38"></path>
+    </svg>
+   </span>
+
+   <svg class="abstract-cable"
+        viewBox="0 0 300 45"
+        preserveAspectRatio="none"
+        aria-hidden="true">
+    <path d="M34 8 C70 44,105 -5,145 22 S220 45,286 10"></path>
+   </svg>
+
+  </div>
+
+  <div class="brand-tagline">
+   আপনার প্রযুক্তির সঠিক সঙ্গী
+  </div>
+
+ </div>
 </div>
-  <div>
-   <h1>SUVAM COMPUTER</h1>
-   <div class="tag">আপনার প্রযুক্তির সঠিক সঙ্গী</div>
+ 
    <div class="social-icons">
 
  <a class="facebook"
