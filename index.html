@@ -66,8 +66,34 @@ header{
  animation:pulse 2.2s infinite
 }
 @keyframes pulse{50%{transform:scale(1.06)}}
-h1{font-size:21px;margin:0}
-.tag{font-size:12px;color:#bcefff;margin-top:4px}
+h1{
+ margin:0;
+ font-family:"Poppins",Arial,sans-serif;
+ font-size:clamp(19px,5.5vw,25px);
+ font-weight:800;
+ letter-spacing:1px;
+ white-space:nowrap;
+ background:linear-gradient(90deg,#ffffff,#52eaff,#ffffff,#00a8ff);
+ background-size:250% auto;
+ -webkit-background-clip:text;
+ -webkit-text-fill-color:transparent;
+ filter:drop-shadow(0 0 7px #00c8ff88);
+ animation:titleShine 4s linear infinite;
+}
+
+@keyframes titleShine{
+ from{background-position:200% center}
+ to{background-position:-200% center}
+}
+.tag{
+ font-family:"Hind Siliguri",sans-serif;
+ font-size:13px;
+ font-weight:600;
+ color:#bff5ff;
+ margin-top:3px;
+ letter-spacing:.3px;
+ text-shadow:0 0 7px #00bfff99;
+}
 .toggle{
  border:1px solid #ffffff55;border-radius:20px;
  padding:8px 10px;color:white;background:#ffffff16;
@@ -101,12 +127,13 @@ nav button.active{background:linear-gradient(135deg,#0787f3,#13c8dc)}
  box-shadow:0 5px 18px #0006;
 }
 
-<div class="delivery-running">
- <span class="delivery-car">🚚</span>
- <span class="delivery-text">
-  <strong>SUVAM COMPUTER</strong> থেকে আপনার বাড়িতে পৌঁছে যাবে 🏠
- </span>
-</div>
+.delivery-running{
+ display:inline-flex;
+ align-items:center;
+ gap:10px;
+ white-space:nowrap;
+ animation:deliveryMove 16s linear infinite;
+}
 
 .delivery-car{
  display:inline-block;
@@ -363,7 +390,6 @@ footer img{width:65px;height:65px;object-fit:contain;border-radius:16px}
    <div class="tag">আপনার প্রযুক্তির সঠিক সঙ্গী</div>
   </div>
  </div>
- <button class="toggle" onclick="toggleAnimation()">⏸ Animation</button>
  
 </header>
 
@@ -376,12 +402,13 @@ footer img{width:65px;height:65px;object-fit:contain;border-radius:16px}
 
 <div id="home" class="page active">
 
- <div class="delivery-running">
- <span class="delivery-car">🚚</span>
- <span class="delivery-text">
-  <strong>HOME DELIVERY AVAILABLE</strong> — SUVAM COMPUTER থেকে আপনার বাড়িতে পৌঁছে যাচ্ছে Computer, Laptop, Printer ও Accessories 🏠
- </span>
-</div>
+ <div class="delivery-strip">
+  <div class="delivery-running">
+   <span class="delivery-car">🚚</span>
+   <span class="delivery-text">
+    <strong>SUVAM COMPUTER</strong> থেকে আপনার বাড়িতে পৌঁছে যাবে
+   </span>
+  </div>
  </div>
 
  <div class="slider">
