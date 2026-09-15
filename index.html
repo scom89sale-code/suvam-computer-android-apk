@@ -6,6 +6,7 @@
 <meta name="theme-color" content="#061631">
 <title>SUVAM COMPUTER</title>
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -94,6 +95,42 @@ h1{
  letter-spacing:.3px;
  text-shadow:0 0 7px #00bfff99;
 }
+ .social-icons{
+ display:flex;
+ align-items:center;
+ gap:8px;
+ margin-top:7px;
+}
+
+.social-icons a{
+ width:28px;
+ height:28px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ border-radius:50%;
+ color:white;
+ text-decoration:none;
+ font-size:15px;
+ box-shadow:0 0 10px #00d9ff77;
+ transition:.3s;
+}
+
+.social-icons a:active{
+ transform:scale(.88);
+}
+
+.facebook{
+ background:linear-gradient(135deg,#1877f2,#005ac6);
+}
+
+.whatsapp-icon{
+ background:linear-gradient(135deg,#25d366,#079b3c);
+}
+
+.instagram{
+ background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);
+}
 .toggle{
  border:1px solid #ffffff55;border-radius:20px;
  padding:8px 10px;color:white;background:#ffffff16;
@@ -118,7 +155,7 @@ nav button.active{background:linear-gradient(135deg,#0787f3,#13c8dc)}
  overflow:hidden;
  white-space:nowrap;
  margin:8px 14px 0;
- padding:9px 0;
+ padding:12px 0;
  border-radius:14px;
  border:1px solid #ffffff55;
  background:linear-gradient(90deg,#ff5500,#ff0080,#006cff,#00c853);
@@ -137,21 +174,31 @@ nav button.active{background:linear-gradient(135deg,#0787f3,#13c8dc)}
 
 .delivery-car{
  display:inline-block;
- font-size:32px;
+ font-size:38px;
  filter:drop-shadow(0 0 8px #fff700);
  animation:carBounce .8s ease-in-out infinite;
 }
 
 .delivery-text{
- color:white;
- font-size:18px;
- font-weight:900;
- text-shadow:0 2px 5px #000,0 0 10px #ffffff88;
+ color:#ffffff;
+ font-size:21px;
+ font-weight:800;
+ letter-spacing:.3px;
+ text-shadow:
+  0 0 3px #ffffff,
+  0 0 9px #00eaff,
+  0 0 16px #008cff,
+  0 2px 4px #000000;
 }
 
 .delivery-text strong{
- color:#fff700;
- font-size:19px;
+ color:#fff500;
+ font-size:23px;
+ font-weight:900;
+ text-shadow:
+  0 0 4px #ffffff,
+  0 0 10px #ffd500,
+  0 0 20px #ff7200;
 }
 
 @keyframes carBounce{
@@ -388,6 +435,33 @@ footer img{width:65px;height:65px;object-fit:contain;border-radius:16px}
   <div>
    <h1>SUVAM COMPUTER</h1>
    <div class="tag">আপনার প্রযুক্তির সঠিক সঙ্গী</div>
+   <div class="social-icons">
+
+ <a class="facebook"
+    href="https://www.facebook.com/share/1LMRNpXv94/"
+    target="_blank"
+    rel="noopener"
+    aria-label="Facebook">
+  <i class="fa-brands fa-facebook-f"></i>
+ </a>
+
+ <a class="whatsapp-icon"
+    href="https://wa.me/918345905814"
+    target="_blank"
+    rel="noopener"
+    aria-label="WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+ </a>
+
+ <a class="instagram"
+    href="https://www.instagram.com/suvam_computer?stkn=bjQ3a3Z5cTliajl0"
+    target="_blank"
+    rel="noopener"
+    aria-label="Instagram">
+  <i class="fa-brands fa-instagram"></i>
+ </a>
+
+</div>
   </div>
  </div>
  
