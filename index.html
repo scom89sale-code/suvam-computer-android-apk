@@ -102,12 +102,35 @@ nav button.active{background:linear-gradient(135deg,#0787f3,#13c8dc)}
 }
 
 .delivery-running{
+ display:inline-flex;
+ align-items:center;
+ gap:10px;
+ white-space:nowrap;
+ animation:deliveryMove 16s linear infinite;
+}
+
+.delivery-car{
  display:inline-block;
+ font-size:32px;
+ filter:drop-shadow(0 0 8px #fff700);
+ animation:carBounce .8s ease-in-out infinite;
+}
+
+.delivery-text{
  color:white;
- font-size:15px;
- font-weight:bold;
- text-shadow:0 2px 5px #000;
- animation:deliveryMove 9s linear infinite;
+ font-size:18px;
+ font-weight:900;
+ text-shadow:0 2px 5px #000,0 0 10px #ffffff88;
+}
+
+.delivery-text strong{
+ color:#fff700;
+ font-size:19px;
+}
+
+@keyframes carBounce{
+ 0%,100%{transform:scaleX(-1) translateY(0)}
+ 50%{transform:scaleX(-1) translateY(-3px)}
 }
 
 @keyframes deliveryMove{
@@ -354,10 +377,12 @@ footer img{width:65px;height:65px;object-fit:contain;border-radius:16px}
 
 <div id="home" class="page active">
 
- <div class="delivery-strip">
-  <div class="delivery-running">
-   🛵💨 SUVAM COMPUTER — আপনার বাড়িতে পৌঁছে যাচ্ছে পছন্দের Computer, Laptop, Printer ও Accessories 🏠
-  </div>
+ <div class="delivery-running">
+ <span class="delivery-car">🚚</span>
+ <span class="delivery-text">
+  <strong>HOME DELIVERY AVAILABLE</strong> — SUVAM COMPUTER থেকে আপনার বাড়িতে পৌঁছে যাচ্ছে Computer, Laptop, Printer ও Accessories 🏠
+ </span>
+</div>
  </div>
 
  <div class="slider">
