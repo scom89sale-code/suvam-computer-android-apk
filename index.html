@@ -21,10 +21,18 @@ body.paused *{animation-play-state:paused!important}
  font-weight:bold
 }
 .running{
- display:inline-block;padding-left:100%;
- animation:running 22s linear infinite
+ display:inline-block;
+ color:white;
+ font-size:14px;
+ font-weight:bold;
+ white-space:nowrap;
+ animation:offerRunning 22s linear infinite;
 }
-@keyframes running{to{transform:translateX(-100%)}}
+
+@keyframes offerRunning{
+ from{transform:translateX(100vw)}
+ to{transform:translateX(-100%)}
+}
 .service-strip{
  overflow:hidden;
  padding:10px 0;
